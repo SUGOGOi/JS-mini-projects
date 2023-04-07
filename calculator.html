@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+   
+    <div class="center">
+        <h2>Calculator</h2>
+        <form>
+            <h1 class="dis" name="display" id="sum" ></h1>
+            <!-- <input class="dis" name="display" id="sum" ></input> -->
+            <div class="buttons">
+                <input type="button" class="btn" value="7">
+                <input type="button" class="btn" value="8">
+                <input type="button" class="btn" value="9">
+                <input type="button" class="btn" value="/"><br>
+                <input type="button" class="btn" value="4">
+                <input type="button" class="btn" value="5">
+                <input type="button" class="btn" value="6">
+                <input type="button" class="btn" value="*"><br>
+                <input type="button" class="btn" value="1">
+                <input type="button" class="btn" value="2">
+                <input type="button" class="btn" value="3">
+                <input type="button" class="btn" value="+"><br>
+                <input type="button" class="btn" value=".">
+                <input type="button" class="btn" value="0">
+                <input type="button" class="btn" value="-">
+                <input type="button" class="btn clr" value="C"><br>
+                <input type="button" class="btn bt" value="=">
+
+            </div>
+        </form>
+    </div>
+    <div class="back">
+        <a href="../js_a.html"><p>BACK</p></a>
+    </div>
+    <script>
+        let string = "";
+        let buttons = document.getElementsByClassName('btn');
+        Array.from(buttons).forEach((button) =>{
+            button.addEventListener('click',(e) => {
+                if(e.target.value == '='){
+                    string = eval(string);
+                    if(string == undefined){
+                        string = '';
+                        document.getElementById.innerHTML = string;
+                    }
+                    else{
+                    document.getElementById('sum').innerText = string;
+                    }
+                }
+                else if (e.target.value == 'C') {
+                    string = '';
+                    document.getElementById('sum').innerHTML = string;
+                }
+                else{
+                // console.log(e.target);
+                string = string + e.target.value;
+                console.log(string);
+                document.getElementById('sum').innerText = string;
+                // document.write(string);
+                }
+            })
+            
+        })
+    </script>
+</body>
+</html>
